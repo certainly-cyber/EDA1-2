@@ -1,0 +1,15 @@
+Analysis & Synthesis Status : Successful - Wed Apr 21 11:28:18 2021
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : jhcpu
+Top-level Entity Name : jhcpu
+Family : Stratix II
+Logic utilization : N/A
+    Combinational ALUTs : 398
+    Dedicated logic registers : 133
+Total registers : 133
+Total pins : 87
+Total virtual pins : 0
+Total block memory bits : 60,416
+DSP block 9-bit elements : 2
+Total PLLs : 0
+Total DLLs : 0

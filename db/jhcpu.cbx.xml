@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="jhcpu">
+		<CBX_INST_ENTRY INSTANCE_NAME="|jhcpu|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_5hm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|jhcpu|lpm_mult:Mult0" CBX_FILE_NAME="mult_b011.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|jhcpu|lpm_ram_dq:dram|altram:sram|altsyncram:ram_block" CBX_FILE_NAME="altsyncram_sp71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|jhcpu|lpm_ram_dq:sram|altram:sram|altsyncram:ram_block" CBX_FILE_NAME="altsyncram_np71.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|jhcpu|lpm_rom:iram|altrom:srom|altsyncram:rom_block" CBX_FILE_NAME="altsyncram_4601.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

@@ -1,0 +1,709 @@
+Analysis & Synthesis report for jhcpu
+Wed Apr 21 11:28:18 2021
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis RAM Summary
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |jhcpu|jp
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for lpm_rom:iram|altrom:srom|altsyncram:rom_block|altsyncram_4601:auto_generated
+ 14. Source assignments for lpm_ram_dq:dram|altram:sram|altsyncram:ram_block|altsyncram_sp71:auto_generated
+ 15. Source assignments for lpm_ram_dq:sram|altram:sram|altsyncram:ram_block|altsyncram_np71:auto_generated
+ 16. Parameter Settings for User Entity Instance: lpm_rom:iram
+ 17. Parameter Settings for User Entity Instance: lpm_ram_dq:dram
+ 18. Parameter Settings for User Entity Instance: lpm_ram_dq:sram
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 20. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 21. lpm_mult Parameter Settings by Entity Instance
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status   ; Successful - Wed Apr 21 11:28:18 2021        ;
+; Quartus II Version            ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
+; Revision Name                 ; jhcpu                                        ;
+; Top-level Entity Name         ; jhcpu                                        ;
+; Family                        ; Stratix II                                   ;
+; Logic utilization             ; N/A                                          ;
+;     Combinational ALUTs       ; 398                                          ;
+;     Dedicated logic registers ; 133                                          ;
+; Total registers               ; 133                                          ;
+; Total pins                    ; 87                                           ;
+; Total virtual pins            ; 0                                            ;
+; Total block memory bits       ; 60,416                                       ;
+; DSP block 9-bit elements      ; 2                                            ;
+; Total PLLs                    ; 0                                            ;
+; Total DLLs                    ; 0                                            ;
++-------------------------------+----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                          ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Option                                                       ; Setting            ; Default Value      ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                        ; jhcpu              ; jhcpu              ;
+; Family name                                                  ; Stratix II         ; Stratix II         ;
+; Use Generated Physical Constraints File                      ; Off                ;                    ;
+; Use smart compilation                                        ; Off                ; Off                ;
+; Restructure Multiplexers                                     ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                          ; Off                ; Off                ;
+; Preserve fewer node names                                    ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                    ; Off                ; Off                ;
+; Verilog Version                                              ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                 ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                     ; Auto               ; Auto               ;
+; Safe State Machine                                           ; Off                ; Off                ;
+; Extract Verilog State Machines                               ; On                 ; On                 ;
+; Extract VHDL State Machines                                  ; On                 ; On                 ;
+; Ignore Verilog initial constructs                            ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                   ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops               ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On                 ; On                 ;
+; Parallel Synthesis                                           ; Off                ; Off                ;
+; DSP Block Balancing                                          ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                           ; On                 ; On                 ;
+; Power-Up Don't Care                                          ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                 ; Off                ; Off                ;
+; Remove Duplicate Registers                                   ; On                 ; On                 ;
+; Ignore CARRY Buffers                                         ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                       ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                    ; Off                ; Off                ;
+; Ignore LCELL Buffers                                         ; Off                ; Off                ;
+; Ignore SOFT Buffers                                          ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                               ; Off                ; Off                ;
+; Optimization Technique                                       ; Balanced           ; Balanced           ;
+; Carry Chain Length                                           ; 70                 ; 70                 ;
+; Auto Carry Chains                                            ; On                 ; On                 ;
+; Auto Open-Drain Pins                                         ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                        ; Off                ; Off                ;
+; Auto ROM Replacement                                         ; On                 ; On                 ;
+; Auto RAM Replacement                                         ; On                 ; On                 ;
+; Auto DSP Block Replacement                                   ; On                 ; On                 ;
+; Auto Shift Register Replacement                              ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                ; On                 ; On                 ;
+; Strict RAM Replacement                                       ; Off                ; Off                ;
+; Allow Synchronous Control Signals                            ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                       ; Off                ; Off                ;
+; Auto RAM Block Balancing                                     ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                            ; Off                ; Off                ;
+; Auto Resource Sharing                                        ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                           ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                           ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing          ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives            ; Off                ; Off                ;
+; Timing-Driven Synthesis                                      ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report           ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                           ; Off                ; Off                ;
+; Synchronization Register Chain Length                        ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                 ; Normal compilation ; Normal compilation ;
+; HDL message level                                            ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages              ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100                ; 100                ;
+; Clock MUX Protection                                         ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                  ; Off                ; Off                ;
+; Block Design Naming                                          ; Auto               ; Auto               ;
+; SDC constraint protection                                    ; Off                ; Off                ;
+; Synthesis Effort                                             ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                           ; Medium             ; Medium             ;
++--------------------------------------------------------------+--------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                     ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------+
+; jhcpu.v                          ; yes             ; User Verilog HDL File            ; C:/quartus/jhcpu/jhcpu.v                                         ;
+; jhcpu.mif                        ; yes             ; User Memory Initialization File  ; C:/quartus/jhcpu/jhcpu.mif                                       ;
+; lpm_rom.tdf                      ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/lpm_rom.tdf           ;
+; altrom.inc                       ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altrom.inc            ;
+; aglobal90.inc                    ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/aglobal90.inc         ;
+; altrom.tdf                       ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altrom.tdf            ;
+; memmodes.inc                     ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/others/maxplus2/memmodes.inc        ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/lpm_decode.inc        ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/lpm_mux.inc           ;
+; altqpram.inc                     ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altqpram.inc          ;
+; altsyncram.inc                   ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altsyncram.inc        ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altsyncram.tdf        ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/a_rdenreg.inc         ;
+; altram.inc                       ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altram.inc            ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altdpram.inc          ;
+; db/altsyncram_4601.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/quartus/jhcpu/db/altsyncram_4601.tdf                          ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/lpm_ram_dq.tdf        ;
+; altram.tdf                       ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altram.tdf            ;
+; db/altsyncram_sp71.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/quartus/jhcpu/db/altsyncram_sp71.tdf                          ;
+; db/altsyncram_np71.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/quartus/jhcpu/db/altsyncram_np71.tdf                          ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/lpm_divide.tdf        ;
+; abs_divider.inc                  ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/abs_divider.inc       ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/sign_div_unsign.inc   ;
+; db/lpm_divide_5hm.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/quartus/jhcpu/db/lpm_divide_5hm.tdf                           ;
+; db/sign_div_unsign_dnh.tdf       ; yes             ; Auto-Generated Megafunction      ; C:/quartus/jhcpu/db/sign_div_unsign_dnh.tdf                      ;
+; db/alt_u_div_u6f.tdf             ; yes             ; Auto-Generated Megafunction      ; C:/quartus/jhcpu/db/alt_u_div_u6f.tdf                            ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/lpm_mult.tdf          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/lpm_add_sub.inc       ;
+; multcore.inc                     ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/multcore.inc          ;
+; bypassff.inc                     ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/bypassff.inc          ;
+; altshift.inc                     ; yes             ; Megafunction                     ; d:/quartus/quartus/libraries/megafunctions/altshift.inc          ;
+; db/mult_b011.tdf                 ; yes             ; Auto-Generated Megafunction      ; C:/quartus/jhcpu/db/mult_b011.tdf                                ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++-----------------------------------------------+-------+
+; Resource                                      ; Usage ;
++-----------------------------------------------+-------+
+; Estimated ALUTs Used                          ; 398   ;
+; Dedicated logic registers                     ; 133   ;
+;                                               ;       ;
+; Estimated ALUTs Unavailable                   ; 39    ;
+;                                               ;       ;
+; Total combinational functions                 ; 398   ;
+; Combinational ALUT usage by number of inputs  ;       ;
+;     -- 7 input functions                      ; 2     ;
+;     -- 6 input functions                      ; 60    ;
+;     -- 5 input functions                      ; 125   ;
+;     -- 4 input functions                      ; 18    ;
+;     -- <=3 input functions                    ; 193   ;
+;                                               ;       ;
+; Combinational ALUTs by mode                   ;       ;
+;     -- normal mode                            ; 192   ;
+;     -- extended LUT mode                      ; 2     ;
+;     -- arithmetic mode                        ; 195   ;
+;     -- shared arithmetic mode                 ; 9     ;
+;                                               ;       ;
+; Estimated ALUT/register pairs used            ; 474   ;
+;                                               ;       ;
+; Total registers                               ; 133   ;
+;     -- Dedicated logic registers              ; 133   ;
+;     -- I/O registers                          ; 0     ;
+;                                               ;       ;
+; Estimated ALMs:  partially or completely used ; 244   ;
+;                                               ;       ;
+; I/O pins                                      ; 87    ;
+; Total block memory bits                       ; 60416 ;
+; DSP block 9-bit elements                      ; 2     ;
+; Maximum fan-out node                          ; clock ;
+; Maximum fan-out                               ; 176   ;
+; Total fan-out                                 ; 2711  ;
+; Average fan-out                               ; 4.09  ;
++-----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
++----------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+; |jhcpu                                       ; 398 (137)         ; 133 (133)    ; 60416             ; 2            ; 0       ; 1         ; 0         ; 87   ; 0            ; |jhcpu                                                                                                 ; work         ;
+;    |lpm_divide:Div0|                         ; 261 (0)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_divide:Div0                                                                                 ; work         ;
+;       |lpm_divide_5hm:auto_generated|        ; 261 (0)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_divide:Div0|lpm_divide_5hm:auto_generated                                                   ; work         ;
+;          |sign_div_unsign_dnh:divider|       ; 261 (0)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_divide:Div0|lpm_divide_5hm:auto_generated|sign_div_unsign_dnh:divider                       ; work         ;
+;             |alt_u_div_u6f:divider|          ; 261 (261)         ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_divide:Div0|lpm_divide_5hm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_u6f:divider ; work         ;
+;    |lpm_mult:Mult0|                          ; 0 (0)             ; 0 (0)        ; 0                 ; 2            ; 0       ; 1         ; 0         ; 0    ; 0            ; |jhcpu|lpm_mult:Mult0                                                                                  ; work         ;
+;       |mult_b011:auto_generated|             ; 0 (0)             ; 0 (0)        ; 0                 ; 2            ; 0       ; 1         ; 0         ; 0    ; 0            ; |jhcpu|lpm_mult:Mult0|mult_b011:auto_generated                                                         ; work         ;
+;    |lpm_ram_dq:dram|                         ; 0 (0)             ; 0 (0)        ; 16384             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:dram                                                                                 ; work         ;
+;       |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 16384             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:dram|altram:sram                                                                     ; work         ;
+;          |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 16384             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:dram|altram:sram|altsyncram:ram_block                                                ; work         ;
+;             |altsyncram_sp71:auto_generated| ; 0 (0)             ; 0 (0)        ; 16384             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:dram|altram:sram|altsyncram:ram_block|altsyncram_sp71:auto_generated                 ; work         ;
+;    |lpm_ram_dq:sram|                         ; 0 (0)             ; 0 (0)        ; 11264             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:sram                                                                                 ; work         ;
+;       |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 11264             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:sram|altram:sram                                                                     ; work         ;
+;          |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 11264             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:sram|altram:sram|altsyncram:ram_block                                                ; work         ;
+;             |altsyncram_np71:auto_generated| ; 0 (0)             ; 0 (0)        ; 11264             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_ram_dq:sram|altram:sram|altsyncram:ram_block|altsyncram_np71:auto_generated                 ; work         ;
+;    |lpm_rom:iram|                            ; 0 (0)             ; 0 (0)        ; 32768             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_rom:iram                                                                                    ; work         ;
+;       |altrom:srom|                          ; 0 (0)             ; 0 (0)        ; 32768             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_rom:iram|altrom:srom                                                                        ; work         ;
+;          |altsyncram:rom_block|              ; 0 (0)             ; 0 (0)        ; 32768             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_rom:iram|altrom:srom|altsyncram:rom_block                                                   ; work         ;
+;             |altsyncram_4601:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768             ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |jhcpu|lpm_rom:iram|altrom:srom|altsyncram:rom_block|altsyncram_4601:auto_generated                    ; work         ;
++----------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                ;
++--------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-----------+
+; Name                                                                                       ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF       ;
++--------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-----------+
+; lpm_ram_dq:dram|altram:sram|altsyncram:ram_block|altsyncram_sp71:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 1024         ; 16           ; --           ; --           ; 16384 ; None      ;
+; lpm_ram_dq:sram|altram:sram|altsyncram:ram_block|altsyncram_np71:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 1024         ; 11           ; --           ; --           ; 11264 ; None      ;
+; lpm_rom:iram|altrom:srom|altsyncram:rom_block|altsyncram_4601:auto_generated|ALTSYNCRAM    ; AUTO ; ROM         ; 2048         ; 16           ; --           ; --           ; 32768 ; jhcpu.mif ;
++--------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-----------+
+
+
++------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary   ;
++----------------------------------+-------------+
+; Statistic                        ; Number Used ;
++----------------------------------+-------------+
+; Simple Multipliers (9-bit)       ; 0           ;
+; Simple Multipliers (18-bit)      ; 1           ;
+; Simple Multipliers (36-bit)      ; 0           ;
+; Multiply Accumulators (18-bit)   ; 0           ;
+; Two-Multipliers Adders (9-bit)   ; 0           ;
+; Two-Multipliers Adders (18-bit)  ; 0           ;
+; Four-Multipliers Adders (9-bit)  ; 0           ;
+; Four-Multipliers Adders (18-bit) ; 0           ;
+; Dynamic DSP Blocks               ; 0           ;
+; DSP Blocks                       ; --          ;
+; DSP Block 9-bit Elements         ; 2           ;
+; Signed Multipliers               ; 0           ;
+; Unsigned Multipliers             ; 1           ;
+; Mixed Sign Multipliers           ; 0           ;
+; Variable Sign Multipliers        ; 0           ;
+; Dedicated Shift Register Chains  ; 0           ;
++----------------------------------+-------------+
+Note: number of DSP Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------+
+; State Machine - |jhcpu|jp                                    ;
++--------+--------+--------+--------+--------+--------+--------+
+; Name   ; jp.101 ; jp.100 ; jp.011 ; jp.010 ; jp.001 ; jp.000 ;
++--------+--------+--------+--------+--------+--------+--------+
+; jp.000 ; 0      ; 0      ; 0      ; 0      ; 0      ; 0      ;
+; jp.001 ; 0      ; 0      ; 0      ; 0      ; 1      ; 1      ;
+; jp.010 ; 0      ; 0      ; 0      ; 1      ; 0      ; 1      ;
+; jp.011 ; 0      ; 0      ; 1      ; 0      ; 0      ; 1      ;
+; jp.100 ; 0      ; 1      ; 0      ; 0      ; 0      ; 1      ;
+; jp.101 ; 1      ; 0      ; 0      ; 0      ; 0      ; 1      ;
++--------+--------+--------+--------+--------+--------+--------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; jn                                    ; Stuck at GND due to stuck port data_in ;
+; jp~13                                 ; Lost fanout                            ;
+; jp~14                                 ; Lost fanout                            ;
+; jp~15                                 ; Lost fanout                            ;
+; Total Number of Removed Registers = 4 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 133   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 29    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 124   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 11 bits   ; 22 ALUTs      ; 0 ALUTs              ; 22 ALUTs               ; Yes        ; |jhcpu|sp[2]               ;
+; 37:1               ; 8 bits    ; 192 ALUTs     ; 24 ALUTs             ; 168 ALUTs              ; Yes        ; |jhcpu|da[0]               ;
+; 24:1               ; 7 bits    ; 112 ALUTs     ; 28 ALUTs             ; 84 ALUTs               ; Yes        ; |jhcpu|da[11]              ;
+; 21:1               ; 11 bits   ; 154 ALUTs     ; 22 ALUTs             ; 132 ALUTs              ; Yes        ; |jhcpu|pc[9]               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Source assignments for lpm_rom:iram|altrom:srom|altsyncram:rom_block|altsyncram_4601:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------+
+; Assignment                      ; Value              ; From ; To                                    ;
++---------------------------------+--------------------+------+---------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                     ;
++---------------------------------+--------------------+------+---------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for lpm_ram_dq:dram|altram:sram|altsyncram:ram_block|altsyncram_sp71:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for lpm_ram_dq:sram|altram:sram|altsyncram:ram_block|altsyncram_np71:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_rom:iram ;
++------------------------+--------------+-------------------+
+; Parameter Name         ; Value        ; Type              ;
++------------------------+--------------+-------------------+
+; LPM_WIDTH              ; 16           ; Signed Integer    ;
+; LPM_WIDTHAD            ; 11           ; Signed Integer    ;
+; LPM_NUMWORDS           ; 2048         ; Untyped           ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED   ; Untyped           ;
+; LPM_OUTDATA            ; UNREGISTERED ; Untyped           ;
+; LPM_FILE               ; jhcpu.mif    ; Untyped           ;
+; DEVICE_FAMILY          ; Stratix II   ; Untyped           ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY        ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY      ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE      ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE    ;
++------------------------+--------------+-------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_ram_dq:dram ;
++------------------------+--------------+----------------------+
+; Parameter Name         ; Value        ; Type                 ;
++------------------------+--------------+----------------------+
+; LPM_WIDTH              ; 16           ; Signed Integer       ;
+; LPM_WIDTHAD            ; 10           ; Signed Integer       ;
+; LPM_NUMWORDS           ; 1024         ; Untyped              ;
+; LPM_INDATA             ; REGISTERED   ; Untyped              ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED   ; Untyped              ;
+; LPM_OUTDATA            ; UNREGISTERED ; Untyped              ;
+; LPM_FILE               ; UNUSED       ; Untyped              ;
+; USE_EAB                ; ON           ; Untyped              ;
+; DEVICE_FAMILY          ; Stratix II   ; Untyped              ;
+; CBXI_PARAMETER         ; NOTHING      ; Untyped              ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY           ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY         ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE         ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE       ;
++------------------------+--------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_ram_dq:sram ;
++------------------------+--------------+----------------------+
+; Parameter Name         ; Value        ; Type                 ;
++------------------------+--------------+----------------------+
+; LPM_WIDTH              ; 11           ; Signed Integer       ;
+; LPM_WIDTHAD            ; 10           ; Signed Integer       ;
+; LPM_NUMWORDS           ; 1024         ; Untyped              ;
+; LPM_INDATA             ; REGISTERED   ; Untyped              ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED   ; Untyped              ;
+; LPM_OUTDATA            ; UNREGISTERED ; Untyped              ;
+; LPM_FILE               ; UNUSED       ; Untyped              ;
+; USE_EAB                ; ON           ; Untyped              ;
+; DEVICE_FAMILY          ; Stratix II   ; Untyped              ;
+; CBXI_PARAMETER         ; NOTHING      ; Untyped              ;
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY           ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY         ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE         ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE       ;
++------------------------+--------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 16             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5hm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                   ;
++------------------------------------------------+------------+---------------------+
+; Parameter Name                                 ; Value      ; Type                ;
++------------------------------------------------+------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 16         ; Untyped             ;
+; LPM_WIDTHB                                     ; 16         ; Untyped             ;
+; LPM_WIDTHP                                     ; 32         ; Untyped             ;
+; LPM_WIDTHR                                     ; 32         ; Untyped             ;
+; LPM_WIDTHS                                     ; 1          ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0          ; Untyped             ;
+; LATENCY                                        ; 0          ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped             ;
+; USE_EAB                                        ; OFF        ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 6          ; Untyped             ;
+; DEVICE_FAMILY                                  ; Stratix II ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_b011  ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped             ;
++------------------------------------------------+------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 1              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16             ;
+;     -- LPM_WIDTHB                     ; 16             ;
+;     -- LPM_WIDTHP                     ; 32             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Apr 21 11:28:08 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off jhcpu -c jhcpu
+Info: Found 1 design units, including 1 entities, in source file jhcpu.v
+    Info: Found entity 1: jhcpu
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(80): created implicit net for "olda"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(81): created implicit net for "oadd"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(82): created implicit net for "osub"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(83): created implicit net for "oout"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(84): created implicit net for "ojmp"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(85): created implicit net for "ostr"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(86): created implicit net for "osdal"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(87): created implicit net for "osdah"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(88): created implicit net for "ocall"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(89): created implicit net for "oret"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(90): created implicit net for "ojz"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(91): created implicit net for "ojn"
+Warning (10236): Verilog HDL Implicit Net warning at jhcpu.v(93): created implicit net for "oir"
+Info: Elaborating entity "jhcpu" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(80): object "olda" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(81): object "oadd" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(82): object "osub" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(83): object "oout" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(84): object "ojmp" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(85): object "ostr" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(86): object "osdal" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(87): object "osdah" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(88): object "ocall" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(89): object "oret" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(90): object "ojz" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(91): object "ojn" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(93): object "oir" assigned a value but never read
+Warning (10858): Verilog HDL warning at jhcpu.v(53): object ir used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(70): object "mult" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(71): object "divi" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at jhcpu.v(72): object "stp" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(93): truncated value with size 16 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(188): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(195): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(216): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(223): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(228): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(275): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(292): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(303): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(318): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(342): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(349): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(355): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(372): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at jhcpu.v(378): truncated value with size 32 to match size of target (11)
+Info: Elaborating entity "lpm_rom" for hierarchy "lpm_rom:iram"
+Info: Elaborated megafunction instantiation "lpm_rom:iram"
+Info: Instantiated megafunction "lpm_rom:iram" with the following parameter:
+    Info: Parameter "lpm_width" = "16"
+    Info: Parameter "lpm_widthad" = "11"
+    Info: Parameter "lpm_outdata" = "UNREGISTERED"
+    Info: Parameter "lpm_indata" = "REGISTERED"
+    Info: Parameter "lpm_address_control" = "REGISTERED"
+    Info: Parameter "lpm_file" = "jhcpu.mif"
+Info: Elaborating entity "altrom" for hierarchy "lpm_rom:iram|altrom:srom"
+Info: Elaborated megafunction instantiation "lpm_rom:iram|altrom:srom", which is child of megafunction instantiation "lpm_rom:iram"
+Info: Elaborating entity "altsyncram" for hierarchy "lpm_rom:iram|altrom:srom|altsyncram:rom_block"
+Info: Elaborated megafunction instantiation "lpm_rom:iram|altrom:srom|altsyncram:rom_block", which is child of megafunction instantiation "lpm_rom:iram"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_4601.tdf
+    Info: Found entity 1: altsyncram_4601
+Info: Elaborating entity "altsyncram_4601" for hierarchy "lpm_rom:iram|altrom:srom|altsyncram:rom_block|altsyncram_4601:auto_generated"
+Critical Warning: Memory depth (2048) in the design file differs from memory depth (4096) in the Memory Initialization File "jhcpu.mif" -- truncated remaining initial content value to fit RAM
+Info: Elaborating entity "lpm_ram_dq" for hierarchy "lpm_ram_dq:dram"
+Info: Elaborated megafunction instantiation "lpm_ram_dq:dram"
+Info: Instantiated megafunction "lpm_ram_dq:dram" with the following parameter:
+    Info: Parameter "lpm_width" = "16"
+    Info: Parameter "lpm_widthad" = "10"
+    Info: Parameter "lpm_outdata" = "UNREGISTERED"
+    Info: Parameter "lpm_indata" = "REGISTERED"
+    Info: Parameter "lpm_address_control" = "REGISTERED"
+Info: Elaborating entity "altram" for hierarchy "lpm_ram_dq:dram|altram:sram"
+Warning: Assertion warning: altram does not support Stratix II device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Stratix II devices
+Info: Elaborated megafunction instantiation "lpm_ram_dq:dram|altram:sram", which is child of megafunction instantiation "lpm_ram_dq:dram"
+Info: Elaborating entity "altsyncram" for hierarchy "lpm_ram_dq:dram|altram:sram|altsyncram:ram_block"
+Info: Elaborated megafunction instantiation "lpm_ram_dq:dram|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "lpm_ram_dq:dram"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_sp71.tdf
+    Info: Found entity 1: altsyncram_sp71
+Info: Elaborating entity "altsyncram_sp71" for hierarchy "lpm_ram_dq:dram|altram:sram|altsyncram:ram_block|altsyncram_sp71:auto_generated"
+Info: Elaborating entity "lpm_ram_dq" for hierarchy "lpm_ram_dq:sram"
+Info: Elaborated megafunction instantiation "lpm_ram_dq:sram"
+Info: Instantiated megafunction "lpm_ram_dq:sram" with the following parameter:
+    Info: Parameter "lpm_width" = "11"
+    Info: Parameter "lpm_widthad" = "10"
+    Info: Parameter "lpm_outdata" = "UNREGISTERED"
+    Info: Parameter "lpm_indata" = "REGISTERED"
+    Info: Parameter "lpm_address_control" = "REGISTERED"
+Info: Elaborating entity "altram" for hierarchy "lpm_ram_dq:sram|altram:sram"
+Warning: Assertion warning: altram does not support Stratix II device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Stratix II devices
+Info: Elaborated megafunction instantiation "lpm_ram_dq:sram|altram:sram", which is child of megafunction instantiation "lpm_ram_dq:sram"
+Info: Elaborating entity "altsyncram" for hierarchy "lpm_ram_dq:sram|altram:sram|altsyncram:ram_block"
+Info: Elaborated megafunction instantiation "lpm_ram_dq:sram|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "lpm_ram_dq:sram"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_np71.tdf
+    Info: Found entity 1: altsyncram_np71
+Info: Elaborating entity "altsyncram_np71" for hierarchy "lpm_ram_dq:sram|altram:sram|altsyncram:ram_block|altsyncram_np71:auto_generated"
+Warning (12020): Port "address" on the entity instantiation of "sram" is connected to a signal of width 11. The formal width of the signal in the module is 10.  The extra bits will be ignored.
+Warning (12020): Port "address" on the entity instantiation of "dram" is connected to a signal of width 11. The formal width of the signal in the module is 10.  The extra bits will be ignored.
+Info: Inferred 2 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0"
+Info: Elaborated megafunction instantiation "lpm_divide:Div0"
+Info: Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "16"
+    Info: Parameter "LPM_WIDTHD" = "16"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_5hm.tdf
+    Info: Found entity 1: lpm_divide_5hm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dnh.tdf
+    Info: Found entity 1: sign_div_unsign_dnh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_u6f.tdf
+    Info: Found entity 1: alt_u_div_u6f
+Info: Elaborated megafunction instantiation "lpm_mult:Mult0"
+Info: Instantiated megafunction "lpm_mult:Mult0" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "16"
+    Info: Parameter "LPM_WIDTHB" = "16"
+    Info: Parameter "LPM_WIDTHP" = "32"
+    Info: Parameter "LPM_WIDTHR" = "32"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "6"
+    Info: Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "AUTO"
+Info: Found 1 design units, including 1 entities, in source file db/mult_b011.tdf
+    Info: Found entity 1: mult_b011
+Warning: Always-enabled tri-state buffer(s) removed
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[0]" to the node "oqw[0]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[1]" to the node "oqw[1]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[2]" to the node "oqw[2]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[3]" to the node "oqw[3]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[4]" to the node "oqw[4]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[5]" to the node "oqw[5]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[6]" to the node "oqw[6]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[7]" to the node "oqw[7]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[8]" to the node "oqw[8]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[9]" to the node "oqw[9]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[10]" to the node "oqw[10]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[11]" to the node "oqw[11]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[12]" to the node "oqw[12]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[13]" to the node "oqw[13]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[14]" to the node "oqw[14]" into a wire
+    Warning: Converted the fanout from the always-enabled tri-state buffer "lpm_rom:iram|otri[15]" to the node "oqw[15]" into a wire
+Warning: Tri-state node(s) do not directly drive top-level pin(s)
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[0]" to the node "mar[0]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[1]" to the node "mar[1]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[2]" to the node "mar[2]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[3]" to the node "mar[3]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[4]" to the node "mar[4]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[5]" to the node "mar[5]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[6]" to the node "mar[6]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[7]" to the node "mar[7]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[8]" to the node "mar[8]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[9]" to the node "mar[9]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[10]" to the node "mar[10]" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[11]" to the node "WideOr7" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[12]" to the node "da" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[13]" to the node "WideOr7" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[14]" to the node "WideOr7" into an OR gate
+    Warning: Converted the fan-out from the tri-state buffer "lpm_rom:iram|otri[15]" to the node "WideOr7" into an OR gate
+Info: 3 registers lost all their fanouts during netlist optimizations. The first 3 are displayed below.
+    Info: Register "jp~13" lost all its fanouts during netlist optimizations.
+    Info: Register "jp~14" lost all its fanouts during netlist optimizations.
+    Info: Register "jp~15" lost all its fanouts during netlist optimizations.
+Info: Implemented 617 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 85 output pins
+    Info: Implemented 485 logic cells
+    Info: Implemented 43 RAM segments
+    Info: Implemented 2 DSP elements
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 84 warnings
+    Info: Peak virtual memory: 241 megabytes
+    Info: Processing ended: Wed Apr 21 11:28:18 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:04
+
+

@@ -1,0 +1,9 @@
+
+State Machine - |jhcpu|jp
+Name jp.101 jp.100 jp.011 jp.010 jp.001 jp.000 
+jp.000 0 0 0 0 0 0 
+jp.001 0 0 0 0 1 1 
+jp.010 0 0 0 1 0 1 
+jp.011 0 0 1 0 0 1 
+jp.100 0 1 0 0 0 1 
+jp.101 1 0 0 0 0 1 
